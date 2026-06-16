@@ -37,8 +37,8 @@ export const Login = () => {
 
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1 className="text-4xl mt-7 mb-3">"tours"</h1>
-                    <h2 className="text-xl mb-10">Please sign in</h2>
+                    <h1 className="text-black mt-7 mb-3">Nashville Rides and Tours</h1>
+                    <h2 className="text-black xl mb-10">Please sign in</h2>
                     <fieldset className="mb-4">
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email" id="inputEmail"

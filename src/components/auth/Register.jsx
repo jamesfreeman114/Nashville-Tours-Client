@@ -44,9 +44,9 @@ export const Register = () => {
 
             <section>
                 <form className="form--login" onSubmit={handleRegister}>
-                    <h1 className="text-4xl mt-7 mb-3">tours</h1>
-                    <h2 className="text-xl mb-10">Register new account</h2>
-                    <fieldset className="mb-4">
+                    <h1 className="text-black 4xl mt-7 mb-3">Nashville Rides and Tours</h1>
+                    <h2 className="text-black xl mb-10">Register new account</h2>
+                    <fieldset className="text-black mb-4">
                         <label htmlFor="firstName"> First name </label>
                         <input type="text" id="firstName"
                             value={firstName}
@@ -55,7 +55,7 @@ export const Register = () => {
                             placeholder=""
                             required autoFocus />
                     </fieldset>
-                    <fieldset className="mb-4">
+                    <fieldset className="text-black mb-4">
                         <label htmlFor="lastName"> Last name </label>
                         <input type="text" id="lastName"
                             value={lastName}
@@ -64,7 +64,7 @@ export const Register = () => {
                             placeholder=""
                             required autoFocus />
                     </fieldset>
-                    <fieldset className="mb-4">
+                    <fieldset className="text-black mb-4">
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email" id="inputEmail"
                             value={email}
@@ -73,7 +73,7 @@ export const Register = () => {
                             placeholder="Email address"
                             required autoFocus />
                     </fieldset>
-                    <fieldset className="mb-4">
+                    <fieldset className="text-black mb-4">
                         <label htmlFor="inputPassword"> Password </label>
                         <input type="password" id="inputPassword"
                             value={password}

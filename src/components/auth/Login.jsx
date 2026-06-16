@@ -39,7 +39,7 @@ export const Login = () => {
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1 className="text-black mt-7 mb-3">Nashville Rides and Tours</h1>
                     <h2 className="text-black xl mb-10">Please sign in</h2>
-                    <fieldset className="mb-4">
+                    <fieldset className="text-black mb-4">
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email" id="inputEmail"
                             value={email}
@@ -48,7 +48,7 @@ export const Login = () => {
                             placeholder="Email address"
                             required autoFocus />
                     </fieldset>
-                    <fieldset className="mb-4">
+                    <fieldset className="text-black mb-4">
                         <label htmlFor="inputPassword"> Password </label>
                         <input type="password" id="inputPassword"
                             value={password}

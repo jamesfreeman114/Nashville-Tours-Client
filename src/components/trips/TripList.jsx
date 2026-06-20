@@ -8,6 +8,7 @@ export const TripList = () => {
     useEffect(()=>{
         getAllTrips().then((allTrips) => setTrips(allTrips))
     },[])
+    
     return (
         <div class="mt-30 grid grid-cols-2 sm:grid-cols-3">
          {trips.map((trip) => (

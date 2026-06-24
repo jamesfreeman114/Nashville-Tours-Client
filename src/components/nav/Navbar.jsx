@@ -7,7 +7,15 @@ export const NavBar = () => {
         <ul className="navbar pb-10">
             {
                 (localStorage.getItem("tours_token") !== null) ?
-                <>
+                <> 
+                    <li className="navbar__item">
+                        <NavLink to={"/profile"}>Profile</NavLink>
+                    </li>
+                    <li className="navbar__item">
+                        <NavLink to={"/"}>Home</NavLink>
+                    </li>
+
+
                     <li className="navbar__item">
                         <button
                             onClick={() => {

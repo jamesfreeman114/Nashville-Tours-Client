@@ -1,0 +1,11 @@
+.reservation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  margin: 1rem;
+  padding: 2rem;
+  background-color: beige;
+  color: black
+}

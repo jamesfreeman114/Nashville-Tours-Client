@@ -15,3 +15,4 @@ export const getTripById = (id) => {
         }
     }).then(res => res.json())
 }
+

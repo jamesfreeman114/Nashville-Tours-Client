@@ -6,6 +6,7 @@ import { Register } from './auth/Register.jsx'
 import { TripList } from "./trips/TripList.jsx"
 import { TripDetail } from "./trips/TripDetail.jsx"
 import { Profile } from "./profile/Profile.jsx"
+import { TripForm } from "./trips/TripForm.jsx"
 
 
 const ApplicationViews = () => {
@@ -17,6 +18,8 @@ const ApplicationViews = () => {
             <Route element={<Authorized />}>
                 <Route path="/" element={<TripList />} />
                 <Route path="/:id" element={<TripDetail />} />
+                <Route path="/:id/book" element={<TripForm />} />
+
                 <Route path="/profile" element={<Profile/>}/>
             </Route>
         </Routes>

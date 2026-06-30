@@ -14,6 +14,12 @@ export const Profile = () => {
 
          reservations.map((reservation) => {
 
+        
+            // Time displaying for Reservations in profile is different timezone from the picker on the form. Datetime value in SQLite database is same as what is chosen on the form
+
+            // Reformat this to use Intl.DateTimeFormat with options: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat
+
+
             const reservationDate = new Date (reservation.scheduled_datetime);
 
             const reservationDateString = reservationDate.toLocaleDateString()

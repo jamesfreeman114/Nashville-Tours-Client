@@ -13,9 +13,10 @@ export const TripList = () => {
     return (
         <div class="mt-30 grid grid-cols-2 sm:grid-cols-3">
          {trips.map((trip) => (
-            <div class="m-10 bg-sly-800 hover:bg-sky-700">
+            <div class="m-10 bg-sly-800 hover:bg-sky-700"
+            key={trip.id} >
                 <Link class="text-3xl" 
-                     key={trip.id} 
+                     
                      to={`./${trip.id}`}>{trip.name}
                 </Link>
                 <p>{trip.description}</p>

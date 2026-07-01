@@ -7,7 +7,7 @@ import { TripList } from "./trips/TripList.jsx"
 import { TripDetail } from "./trips/TripDetail.jsx"
 import { Profile } from "./profile/Profile.jsx"
 import { TripForm } from "./trips/TripForm.jsx"
-
+import { EditReservationForm } from "./reservations/EditReservationForm.jsx"
 
 const ApplicationViews = () => {
 
@@ -19,7 +19,7 @@ const ApplicationViews = () => {
                 <Route path="/" element={<TripList />} />
                 <Route path="/:id" element={<TripDetail />} />
                 <Route path="/:id/book" element={<TripForm />} />
-
+                <Route path="/edit/:id" element={< EditReservationForm/>} />
                 <Route path="/profile" element={<Profile/>}/>
             </Route>
         </Routes>

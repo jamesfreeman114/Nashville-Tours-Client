@@ -22,6 +22,7 @@ export const TripForm = () => {
 
     const handleSave = e => {
         e.preventDefault()
+
         createReservation(reservation).then(() =>{
             navigate(`/profile`)
         })
@@ -75,7 +76,7 @@ export const TripForm = () => {
             </fieldset>
             <fieldset>
                 <button
-                    onClick={handleSave}>Click Me!
+                    onClick={handleSave}>Create Reservation
                 </button>
             </fieldset>
         </form>

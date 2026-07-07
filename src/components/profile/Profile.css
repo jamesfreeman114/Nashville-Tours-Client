@@ -1,3 +1,13 @@
+@import "tailwindcss";
+
+
+.profile-container {
+
+  display: flex;
+  flex-direction: column;
+
+}
+
 .reservation-container {
   display: flex;
   flex-direction: column;
@@ -6,17 +16,19 @@
   justify-content: center;
   margin: 2rem;
   padding: 2rem;
-  background-color: beige;
-  color: black
+  color: white;
+  min-width: fit-content;
+
+  @apply rounded-xl border-2 border-indigo-600 
+
+
 }
 
-.reservation-button {
-  background-color: white;
-}
-
-.container {
+.button-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 6rem;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 0.5rem;
 }
+
+

@@ -11,21 +11,31 @@ export const TripList = () => {
     },[])
     
     return (
-        <div class="mt-30 grid grid-cols-2 sm:grid-cols-3">
-         {trips.map((trip) => (
-            <div class="m-10 bg-sly-800 hover:bg-sky-700"
-            key={trip.id} >
-                <Link class="text-3xl" 
-                     
-                     to={`./${trip.id}`}>{trip.name}
+
+        <>
+
+        <h1 className="text-center mt-10">Nashville Rides and Tours</h1>
+        <p className="text-center m-3">Select one of our options below for trip details, booking info, and reviews</p>
+
+
+        <div class="grid grid-cols-2 sm:grid-cols-3">
+      
+            {trips.map((trip) => (
+
+                <Link class="m-10 rounded-xl border-2 border-indigo-600 overflow-hidden flex flex-col text-center"
+                    key={trip.id} 
+                    to={`./${trip.id}`}>
+                        <p className="m-5 text-3xl " >{trip.name}</p>
+                
+                        <img class="m-5  rounded-3xl"
+                            src={trip.image_path}
+                            alt="card-image"/>     
                 </Link>
-                <p>{trip.description}</p>
-                <img class="mw-100\"
-                    src={trip.image_path}
-                    alt="card-image"/>     
-            </div>
-         )
-        )}
+            ))}
+
         </div>
-    )
-}
+
+        </>
+
+        
+    )}

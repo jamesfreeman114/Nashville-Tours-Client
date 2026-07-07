@@ -1,12 +1,21 @@
 import './App.css'
+import { NavBar } from './components/nav/Navbar'
+import ApplicationViews from './components/ApplicationViews'
+import { BrowserRouter } from 'react-router-dom'
 
-function App() {
+const App = () => {
 
 
   return (
     <>
+    <BrowserRouter>
 
-      <h1>Hello World!</h1>
+      <NavBar />
+      <div class="pt-30">
+      <ApplicationViews/>
+      </div>
+    
+    </BrowserRouter>
 
     </>
   )

@@ -9,12 +9,9 @@ export const ReservationList = ( {reservations}) => {
          return (
         
 
-         reservations.map((reservation) => {
-
-        
-            // Time displaying for Reservations is UTC. Same as picker. Look into reformatting both so timeZone is US Central.
-
-            // Reformat this to use Intl.DateTimeFormat with options: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat
+         reservations
+            .filter((reservation) => new Date(reservation.scheduled_datetime) >= new Date())
+            .map((reservation) => {
 
 
             const reservationDate = new Date (reservation.scheduled_datetime);
@@ -24,27 +21,32 @@ export const ReservationList = ( {reservations}) => {
                 timeStyle: "short",
                 timeZone: "UTC",
                 }).format(reservationDate).toString());
+            
 
             return (
              
                 <div
                     key={reservation.id}>
                     <div className="reservation-container">
-                        <p>{reservation.trip_vehicle.trip.name}</p>
+                        <p>{reservation.trip_vehicle.trip.name} ({reservation.trip_vehicle.vehicle.name})</p>
                         <p>{dateTimeString}</p>
-                        <button className="reservation-button"
+                        <div className="button-container">
+                            <button className="button"
                                 onClick={ (e) => e.preventDefault (navigate(`/edit/${reservation.id}`))}
-                                >Edit</button>
-                        <button          className="reservation-button" onClick= { (e) => e.preventDefault(deleteReservation(reservation.id).then(navigate("/")))
-
-                        
-
-                        }>Delete</button>
+                                >Edit
+                            </button>
+                            <button          
+                                className="button" 
+                                onClick= { (e) => e.preventDefault(deleteReservation(reservation.id).then(navigate("/")))}
+                                >
+                                Delete
+                            </button>
+                        </div>
                     </div>
                 </div>
                 )
             }
-        )
+         )
     )
     
 }

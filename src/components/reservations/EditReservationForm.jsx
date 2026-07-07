@@ -5,14 +5,8 @@ import { getVehiclesByTripType } from "../services/tripVehicleServices"
 
 export const EditReservationForm = () => {
 
-    const initialState = {
-        tripVehicleId: 0,
-        scheduled_datetime: "",
-    }
-
     const {id} = useParams()
     const [reservation, setReservation] = useState({})
-    const [reservationProps, updateReservationProps] = useState(initialState)
     const [vehicleOptions, setVehicleOptions] = useState([])
 
     const navigate = useNavigate()
@@ -35,9 +29,20 @@ export const EditReservationForm = () => {
     const handleSubmit = e => {
         e.preventDefault()
 
-        editReservation(id, reservationProps).then(() => {
-            navigate("/")
-        })
+        const reservationData = {
+        tripVehicleId: reservation.tripVehicleId,
+        scheduled_datetime: reservation.scheduled_datetime,
+    }
+        if (reservationData.tripVehicleId && reservationData.scheduled_datetime) 
+        editReservation(id, reservationData).then(() => {
+            window.alert("Changes Saved")
+            navigate("/profile")}
+
+        )
+
+        else (
+            window.alert("Please complete the form")
+        )
 
 
     }
@@ -45,19 +50,20 @@ export const EditReservationForm = () => {
 
     return (
 
-        <>
-            <h1>Edit Your {reservation?.trip_vehicle?.trip.name} Reservation</h1>
+        <div className="m-5 flex flex-col items-center rounded-xl border-2 border-indigo-500" >
+            
 
-            <form>
-            <fieldset >
+            <form className="text-center p-10">
+            <h1 className="p-5">Edit Your {reservation?.trip_vehicle?.trip.name} Reservation</h1>
+            <fieldset className="p-10">
                 <label>Vehicle Type: </label>
-                <select  onChange = { e => {
-                            const copy = { ...reservationProps}
+                <select  
+                        onChange = { e => {
+                            const copy = { ...reservation}
                             copy.tripVehicleId = e.target.value
-                            updateReservationProps(copy)}}
+                            setReservation(copy)}}
 
                     >
-                        <option value="">Select a Vehicle:</option>
                         {vehicleOptions.map((option) => {
                             return (
                                 <option
@@ -70,29 +76,28 @@ export const EditReservationForm = () => {
                         })}
                     </select>
             </fieldset>
-            <fieldset>
+            <fieldset className="p-10">
                 <label htmlFor="datetime">Pickup Time:</label>
                 <input id="datetime" 
                        type="datetime-local" 
                        name="reservation-datetime"
                        onChange = { e => {
-                            const copy = { ...reservationProps}
+                            const copy = { ...reservation}
                             copy.scheduled_datetime = e.target.value
-                            updateReservationProps(copy)
+                            setReservation(copy)
 
                        }} />
             </fieldset>
             <fieldset>
                 <button
-                    onClick={handleSubmit}>Edit Reservation</button>
+                    onClick={handleSubmit}>Confirm Changes
+                </button>
             </fieldset>
             </form>
 
 
-            
 
-        
-        </>
+        </div>
 
 
 

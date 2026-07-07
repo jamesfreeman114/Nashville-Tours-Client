@@ -35,7 +35,14 @@ export const ReviewForm = () => {
     const handleSave = e => {
         e.preventDefault()
 
+        if ( review.rating === 0 || review.comment === "")
+        
+        window.alert("Please complete the form")
+
+        else
+
         createReview(review).then(() =>{
+            window.alert("Review saved")
             navigate(`/${id}`)
         })
     }
@@ -54,7 +61,7 @@ export const ReviewForm = () => {
                         id="comment" 
                         name="comment" 
                         rows="3" 
-                        className="comment" 
+                        className="comment"
                         onChange={ e => {
                             const copy = { ...review}
                             copy.comment = e.target.value

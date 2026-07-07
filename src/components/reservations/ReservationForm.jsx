@@ -32,6 +32,12 @@ export const ReservationForm = () => {
     const handleSave = e => {
         e.preventDefault()
 
+        if ( reservation.tripVehicleId === 0 || reservation.scheduled_datetime === "" ) 
+            
+        window.alert("Please complete the form")
+        
+        else 
+
         createReservation(reservation).then(() =>{
             window.alert("Reservation Saved")
             navigate(`/profile`)

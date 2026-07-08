@@ -8,6 +8,7 @@ export const EditReservationForm = () => {
     const {id} = useParams()
     const [reservation, setReservation] = useState({})
     const [vehicleOptions, setVehicleOptions] = useState([])
+    const [tripVehicleId, setTripVehicleId] = useState(reservation?.trip_vehicle?.id)
 
     const navigate = useNavigate()
     
@@ -15,7 +16,8 @@ export const EditReservationForm = () => {
 
   
     useEffect(()=>{
-        getReservationById(id).then((res) => setReservation(res))
+        getReservationById(id).then((res) => {setReservation(res)
+        setTripVehicleId(res.trip_vehicle.id)})
     }, [id])
 
     useEffect(()=>{
@@ -30,7 +32,7 @@ export const EditReservationForm = () => {
         e.preventDefault()
 
         const reservationData = {
-        tripVehicleId: reservation.tripVehicleId,
+        tripVehicleId: tripVehicleId,
         scheduled_datetime: reservation.scheduled_datetime,
     }
         if (reservationData.tripVehicleId && reservationData.scheduled_datetime) 
@@ -57,11 +59,10 @@ export const EditReservationForm = () => {
             <h1 className="p-5">Edit Your {reservation?.trip_vehicle?.trip.name} Reservation</h1>
             <fieldset className="p-10">
                 <label>Vehicle Type: </label>
-                <select  
-                        onChange = { e => {
-                            const copy = { ...reservation}
-                            copy.tripVehicleId = e.target.value
-                            setReservation(copy)}}
+                <select 
+                        value={tripVehicleId}
+                        onChange = { e =>  
+                            setTripVehicleId(e.target.value)}
 
                     >
                         {vehicleOptions.map((option) => {

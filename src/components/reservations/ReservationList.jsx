@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { deleteReservation } from "../services/reservationServices"
 
-export const ReservationList = ( {reservations}) => {
+export const ReservationList = ( {reservations, getAndSetReservations}) => {
 
         const navigate = useNavigate()
         
@@ -22,8 +22,21 @@ export const ReservationList = ( {reservations}) => {
                 timeZone: "UTC",
                 }).format(reservationDate).toString());
             
+            const handleDelete = () => { 
+                deleteReservation(reservation.id).then(()=> {getAndSetReservations()})
+            }
+
+            const handleEdit = (e) => {
+                e.preventDefault()
+
+                navigate((`/edit/${reservation.id}`))
+            }
+
+                
 
             return (
+
+                
              
                 <div
                     key={reservation.id}>
@@ -32,12 +45,12 @@ export const ReservationList = ( {reservations}) => {
                         <p>{dateTimeString}</p>
                         <div className="button-container">
                             <button className="button"
-                                onClick={ (e) => e.preventDefault (navigate(`/edit/${reservation.id}`))}
+                                onClick={handleEdit}
                                 >Edit
                             </button>
                             <button          
                                 className="button" 
-                                onClick= { (e) => e.preventDefault(deleteReservation(reservation.id).then(navigate("/")))}
+                                onClick= {handleDelete }
                                 >
                                 Delete
                             </button>

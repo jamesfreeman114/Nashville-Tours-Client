@@ -1,31 +1,19 @@
-import { getMyReviews, deleteReview } from "../services/reviewServices"
-import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { Rating } from "react-simple-star-rating"
 
-export const ReviewList = () => {
-
-    
-    const [reviews, setReviews] = useState([])
+export const ReviewList = ( {reviews, getAndSetReviews, deleteReview}) => {
 
     const navigate = useNavigate()
 
-    useEffect(()=>{
-        getMyReviews().then((reviewArray) => setReviews(reviewArray))},[])
     
-    
-
     return (
 
         reviews.map((review) => {
 
-            const handleDelete = (e) => {
-            e.preventDefault()
+            const handleDelete = () => {
 
-            deleteReview(review.id ).then(
-                window.alert("Review Deleted"),
-                navigate("/")
-
+            deleteReview(review.id).then(() =>
+                getAndSetReviews()
             )}
 
             const handleEdit = (e) => {

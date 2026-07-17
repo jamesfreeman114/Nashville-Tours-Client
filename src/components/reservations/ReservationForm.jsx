@@ -54,21 +54,21 @@ export const ReservationForm = () => {
 
     return (
 
+        <div className="form-card">
 
-        <div className="m-5 flex flex-col items-center rounded-xl border-2 border-indigo-500" >
-
-        <form className="text-center p-10">
-            <h1 className="p-5">Book Your {trip.name} Reservation</h1>
-            <fieldset className="p-10">
-                <label>Vehicle Type: </label>
-                <select 
+        <form className="w-full text-center">
+            <h1 className="mb-6 text-2xl">Book Your {trip.name} Reservation</h1>
+            <fieldset className="mb-5 flex flex-col items-start gap-1">
+                <label className="text-sm font-medium text-white/80">Vehicle Type: </label>
+                <select
+                        className="field"
                         onChange={ e => {
                         const copy = { ...reservation}
                         copy.tripVehicleId = e.target.value
                         updateReservationProps(copy)
                     }}>
-                        <option 
-                        
+                        <option
+
                         value="">Select a Vehicle:</option>
                         {vehicleOptions.map((option) => {
                             return (
@@ -83,12 +83,12 @@ export const ReservationForm = () => {
                     </select>
 
             </fieldset>
-            <fieldset className="p-10">
-                <label htmlFor="datetime">Enter a date and time for your Reservation:</label>
-                <input id="datetime" 
-                       type="datetime-local" 
+            <fieldset className="mb-6 flex flex-col items-start gap-1">
+                <label htmlFor="datetime" className="text-sm font-medium text-white/80">Enter a date and time for your Reservation:</label>
+                <input id="datetime"
+                       type="datetime-local"
                        name="reservation-datetime"
-                       className="p-5"
+                       className="field"
                        onChange = { e => {
                             const copy = { ...reservation}
                             copy.scheduled_datetime = e.target.value
@@ -98,6 +98,7 @@ export const ReservationForm = () => {
             </fieldset>
             <fieldset>
                 <button
+                    className="btn-primary px-6 py-2 text-base"
                     onClick={handleSave}>Create Reservation
                 </button>
             </fieldset>

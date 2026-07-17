@@ -68,6 +68,44 @@ svg.star-svg {
     display: inline;
 }
 
-.comment {
-  @apply block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6
+.field {
+  @apply block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6;
+  /* Forces native popups (select options, datetime picker) to render with
+     dark UI chrome so they match our text-white/dark-bg styling instead of
+     the browser's default light popup, which would show white text on white. */
+  color-scheme: dark;
+}
+
+/* The <select> dropdown list is an OS-native popup that ignores our
+   translucent bg-white/5 (it needs an opaque color), so it's set directly
+   here rather than relying on color-scheme alone. #393939 matches the
+   composited shade of the page background under two stacked bg-white/5
+   layers (form-card + the select itself), which is what the closed box
+   actually renders as. */
+select.field option {
+  background-color: #393939;
+  color: #fff;
+}
+
+.form-card {
+  @apply mx-auto my-8 flex w-full max-w-lg flex-col items-center rounded-2xl border border-white/10 bg-white/5 p-8 shadow-lg;
+}
+
+/* Card used for review display. Lifts, scales, and glows on hover so it "pops" out of the grid. */
+.review-card {
+  @apply relative flex flex-col rounded-2xl border border-white/10 bg-white/5 p-5 text-center shadow-md
+    transition-all duration-300 ease-out
+    hover:-translate-y-2 hover:scale-[1.03] hover:border-indigo-400 hover:shadow-2xl hover:shadow-indigo-500/30;
+}
+
+.btn-primary {
+  @apply rounded-full bg-indigo-600 px-4 py-1.5 text-sm font-medium text-white transition hover:bg-indigo-500;
+}
+
+.btn-danger {
+  @apply rounded-full bg-red-600/80 px-4 py-1.5 text-sm font-medium text-white transition hover:bg-red-500;
+}
+
+.btn-icon {
+  @apply flex h-10 w-10 flex-none items-center justify-center rounded-full border border-white/10 bg-white/5 p-0 text-white transition hover:border-indigo-400 hover:bg-indigo-500/20 disabled:pointer-events-none disabled:opacity-30;
 }

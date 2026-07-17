@@ -7,6 +7,15 @@ export const getReviewsByTripId = (tripId) => {
     }).then(res => res.json())
 }
 
+export const getAllReviews = () => {
+    return fetch(`http://localhost:8000/reviews`, {
+        headers: {
+            Authorization: "Token " + JSON.parse(localStorage.getItem('tours_token')).token,
+            "Content-Type": "application/json"
+        }
+    }).then(res => res.json())
+}
+
 export const getMyReviews = () => {
     return fetch(`http://localhost:8000/reviews?reviewer=current`, {
         headers: {

@@ -8,27 +8,3 @@
 
 }
 
-.reservation-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-self: center;
-  justify-content: center;
-  margin: 2rem;
-  padding: 2rem;
-  color: white;
-  min-width: fit-content;
-
-  @apply rounded-xl border-2 border-indigo-600 
-
-
-}
-
-.button-container {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  padding: 0.5rem;
-}
-
-

@@ -35,21 +35,21 @@ export const Profile = () => {
     return (
 
 
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center gap-4 px-4 pb-10">
             <h1 className="text-center">Upcoming Reservations</h1>
-                <div className="grid grid-cols-2 sm:grid-cols-3">
+                <div className="w-full max-w-4xl">
                     <ReservationList
                         reservations={reservations}
                         getAndSetReservations={getAndSetReservations}/>
                 </div>
-            <h1 className="text-center">My Reviews</h1>
-                <div className="grid grid-cols-2 sm:grid-cols-3">
+            <h1 className="text-center mt-6">My Reviews</h1>
+                <div className="grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     <ReviewList
                         reviews={reviews}
                         getAndSetReviews={getAndSetReviews}
-                        deleteReview={deleteReview}    
+                        deleteReview={deleteReview}
                     />
-                </div> 
+                </div>
         </div>
         
     )

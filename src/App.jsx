@@ -11,7 +11,7 @@ const App = () => {
     <BrowserRouter>
 
       <NavBar />
-      <div className="pt-30">
+      <div className="pt-16">
       <ApplicationViews/>
       </div>
     

@@ -4,7 +4,7 @@ import "./Navbar.css"
 export const NavBar = () => {
     const navigate = useNavigate()
     return (
-        <ul className="navbar pb-10">
+        <ul className="navbar">
             {
                 (localStorage.getItem("tours_token") !== null) ?
                 <> 
